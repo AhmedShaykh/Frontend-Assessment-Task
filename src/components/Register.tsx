@@ -3,23 +3,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { registerSchema } from "@/lib/schema";
 import { BACKEND_API } from "@/lib/services";
 import { setLogin } from "@/store/authSlice";
 import { useAppDispatch } from "@/store";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
 import { z } from "zod";
-
-const registerSchema = z.object({
-    fullName: z.string().min(1, "Full name is required"),
-    email: z.string().email("Invalid email address"),
-    phone: z.string().min(7, "Phone must be at least 7 characters"),
-    password: z.string().min(6, "Password must be at least 6 characters"),
-});
 
 type RegisterFormData = z.infer<typeof registerSchema>;
 

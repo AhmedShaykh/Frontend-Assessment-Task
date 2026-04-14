@@ -6,6 +6,7 @@ import { logout, setLogin } from "@/store/authSlice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BACKEND_API } from "@/lib/services";
+import { loginSchema } from "@/lib/schema";
 import { useAppDispatch } from "@/store";
 import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -13,12 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
-import { z } from "zod";
-
-const loginSchema = z.object({
-    email: z.string().email("Invalid email address").min(1, "Email is required"),
-    password: z.string().min(6, "Password must be at least 6 characters")
-});
+import z from "zod";
 
 type LoginFormData = z.infer<typeof loginSchema>;
 

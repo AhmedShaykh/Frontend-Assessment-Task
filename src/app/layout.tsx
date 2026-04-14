@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Geist, Geist_Mono } from "next/font/google";
 import ReduxProvider from "@/components/Provider";
+import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <ReduxProvider>
             {children}
+            <Toaster />
           </ReduxProvider>
         </ThemeProvider>
       </body>
