@@ -17,7 +17,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "XYFORA Web Application",
-  description: "XYFORA Web Application Client"
+  description: "XYFORA Web Application Client",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg"
+  }
 };
 
 export default function RootLayout({
